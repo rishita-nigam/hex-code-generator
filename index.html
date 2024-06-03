@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hex code generator</title>
+    <style>
+        #colorDisplay {
+            font-size: 30px;
+            margin: 20px;
+        }
+        #generateButton {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #284a6e;
+            color: white;
+        }
+        #generateButton:hover {
+            background-color: #7295ba;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDisplay">#FFFFFF</div>
+    <button id="generateButton">new</button>
+    <script>
+        function generateRandomHexcode() {
+            const hexcode = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6,'0');
+            return hexcode;
+        }
+        document.getElementById('generateButton').addEventListener('click', () => {
+            const newColor = generateRandomHexcode();
+            document.getElementById('colorDisplay').innerText = newColor;
+            document.body.style.backgroundColor = newColor;
+        });
+    </script>
+</body>
+</html>
